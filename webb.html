@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Webb images</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                width:100%;
+                height:100%;
+            }
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 768px;
+            }
+            img {
+                width: 10%;
+                min-width: 525px;
+                min-height: 500px;                
+                display: block;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div><img id="webb"></div>
+    </body>
+    <script>
+    var images = [
+        "webb1.jpeg",
+        "webb2.jpeg",
+        "webb3.jpeg",
+        "webb4.jpeg",
+        "webb5.jpeg",
+        "webb6.jpeg"
+    ];
+    function showImage(){
+        const rand = images[Math.floor(Math.random() * images.length)];
+        document.getElementById("webb").src="img/" + rand;
+    }
+    (function loop() {
+        showImage();
+        setTimeout(function () {
+            showImage();
+            loop();
+        }, 60000);
+    }());
+</script>
+</html>
